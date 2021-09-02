@@ -1,0 +1,127 @@
+{
+  "user": [
+    {
+      "_id": "507f1f77bcf86cd799439011",
+      "username": "johndoe123",
+      "fullname": "John Doe",
+      "birthday": "1969-06-16",
+      "email": "johndoe@example.com",
+      "image": "/1627046654786.jpg"
+    },
+    {
+      "_id": "61016c4a4bb89f1164e86821",
+      "username": "cutiejane",
+      "fullname": "Jane Doe",
+      "birthday": "1972-01-17",
+      "email": "cutiej_xx@example.com",
+      "image": "/1757766612334.jpg"
+    }
+  ],
+  "movie": [
+    {
+      "_id": "61016c4a4bb89f1164e86821",
+      "title": "Shawshank Redemption",
+      "synopsis": "Andy Dufresne, a successful banker, is arrested for the murders of his wife and her lover, and is sentenced to life imprisonment at the Shawshank prison. He becomes the most unconventional prisoner.",
+      "director": "Frank Darabont",
+      "releasedate": "1994-09-22",
+      "poster": "/4770806605845.jpg",
+      "trailer": "/NmzuHjWmXOc",
+      "tags": ["drama", "crime", "prison"],
+      "rating": 4.7
+    },
+    {
+      "_id": "61018d73228b945684892839",
+      "title": "Inception",
+      "synopsis": "Cobb steals information from his targets by entering their dreams. Saito offers to wipe clean Cobb's criminal history as payment for performing an inception on his sick competitor's son.",
+      "director": "Christopher Nolan",
+      "poster": "/3471141049944.jpg",
+      "tags": ["action", "sci-fi"],
+      "rating": 4.8
+    },
+    {
+      "_id": "61018e75877d1be1f0830743",
+      "title": "Titanic",
+      "synopsis": "Seventeen-year-old Rose hails from an aristocratic family and is set to be married. When she boards the Titanic, she meets Jack Dawson, an artist, and falls in love with him.",
+      "director": "James Cameron",
+      "releasedate": "1998-01-05",
+      "trailer": "/CHekzSiZjrY",
+      "poster": "/5163604765241.jpg",
+      "tags": ["romance", "drama"],
+      "rating": 3.9
+    },
+    {
+      "_id": "61018f1520a9f700c454b793",
+      "title": "The Revenant",
+      "synopsis": "Hugh Glass, a legendary frontiersman, is severely injured in a bear attack and is abandoned by his hunting crew. He uses his skills to survive and take revenge on his companion who betrayed him.",
+      "director": "Alejandro González Iñárritu",
+      "releasedate": "2016-02-03",
+      "trailer": "/LoebZZ8K5N0",
+      "poster": "/7818529098707.jpg",
+      "tags": ["western", "drama"],
+      "rating": 4
+    },
+    {
+      "_id": "61018f1910cd162228dea8de",
+      "title": "White House Down",
+      "synopsis": "A Capitol policeman leaps into action to save his daughter and protect the American president from a group of terrorists who have seized the White House.",
+      "director": "Roland Emmerich",
+      "releasedate": "2013-06-26",
+      "trailer": "/WfaTlmYvTA8",
+      "poster": "/8748114691874.jpg",
+      "tags": ["action", "thriller"],
+      "rating": 3.9
+    },
+    {
+      "_id": "61018f1e3014f7463de1fb71",
+      "title": "Django Unchained",
+      "synopsis": "When Django, a slave, is freed, he joins forces with a bounty hunter to rescue his wife, who has been enslaved by Calvin, a hard-hearted plantation owner.",
+      "director": "Quentin Tarantino",
+      "releasedate": "2013-02-13",
+      "trailer": "/0fUCuvNlOCg",
+      "poster": "/9724739911967.jpg",
+      "tags": ["western", "action"],
+      "rating": 4.2
+    },
+    {
+      "_id": "61018f22bcdec4a06a212dd0",
+      "title": "21 Jump Street",
+      "synopsis": "Schmidt and Jenko are high school friends who go on to become police officers. The two friends go undercover as students in order to bust a drug ring and find the source of a synthetic drug.",
+      "director": "Phil Lord",
+      "releasedate": "2012-04-18",
+      "trailer": "/RLoKtb4c4W0",
+      "poster": "/6201190084976.jpg",
+      "tags": ["comedy", "action"],
+      "rating": 3.6
+    }
+  ],
+  "review": [
+    {
+      "_id": "610230b5378601c318ed6823",
+      "user": {
+        "id": "610230f154eb212f8f263839",
+        "username": "johndoe123",
+        "image": "/1627046654786.jpg"
+      },
+      "movie": {
+        "id": "610192f8ac3efb87056b63d4",
+        "title": "22 Jump Street"
+      },
+      "content": "Oh my god this movie is so funny I can't stop laughing my arse off.",
+      "rating": 5
+    },
+    {
+      "_id": "610231a1dae51dfe9968d4cb",
+      "user": {
+        "id": "61016c4a4bb89f1164e86821",
+        "username": "cutiejane",
+        "image": "/1757766612334.jpg"
+      },
+      "movie": {
+        "id": "610192f8ac3efb87056b63d4",
+        "title": "22 Jump Street"
+      },
+      "content": "Channing Tatum is so hot and so silly at the same time lmao.",
+      "rating": 4.5
+    }
+  ]
+}

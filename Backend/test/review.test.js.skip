@@ -1,0 +1,160 @@
+const request = require("supertest");
+const faker = require("faker");
+const jwt = require("jsonwebtoken");
+const app = require("../app");
+const { review, user, movie } = require("../models");
+let data = [];
+let userToken = "";
+let adminToken = "";
+let id_movie = "";
+let id_review = "";
+beforeAll(async () => {
+  data = await user.find();
+
+  const pengguna = await user.create({
+    fullname: "Gema Darmawan",
+    username: "gemadar",
+    email: "gem@mail.com",
+    password: "Gema123!.",
+    image: faker.image.avatar(),
+    role: "user",
+  });
+
+  const avatar = await movie.create({
+    title: "Legend of ang",
+    synopsis: "lupa",
+  });
+
+  id_movie = avatar._id;
+  const admin = await user.create({
+    fullname: "admin",
+    username: "admin1",
+    email: "admin@mail.com",
+    password: "Gema123!.",
+    image: faker.image.avatar(),
+    role: "admin",
+  });
+
+  const testReview = await review.create({
+    headline: "test",
+    content: "test test test test",
+    rating: "4",
+    movie: id_movie,
+    user: pengguna._id,
+  });
+  userToken = jwt.sign({ user: pengguna._id }, process.env.JWT_SECRET);
+  adminToken = jwt.sign({ user: admin._id }, process.env.JWT_SECRET);
+});
+
+describe("[POST /review/:id_movie] Create New Review", () => {
+  it("Result", async () => {
+    const res = await request(app)
+      .post(`/reviews/${id_movie}`)
+      .set("Authorization", `Bearer ${userToken}`)
+      .send({
+        headline: "ABCD",
+        content: "AndaBelumBeruntung",
+        rating: "3",
+      });
+
+    expect(res.statusCode).toEqual(201);
+    expect(res.body).toBeInstanceOf(Object);
+  });
+});
+
+it("Rating must be between 0-5 (integers and half values)", async () => {
+  const response = await request(app)
+    .post("/review/:id_movie")
+    .set("Authorization", `Bearer ${adminToken}`)
+    .send({
+      headline: "suka",
+      content: "AndaBelumBeruntung",
+      rating: "10",
+    });
+
+  expect(response.statusCode).toEqual(400);
+  expect(response.body).toBeInstanceOf(Object);
+});
+
+it("headline can only be one word", async () => {
+  const response = await request(app)
+    .post("/review/id_movie")
+    .set("Authorization", `Bearer ${userToken}`)
+    .send({
+      headline: "suka suka",
+      content: "AndaBelumBeruntung",
+      rating: "3",
+    });
+
+  expect(response.statusCode).toEqual(400);
+  expect(response.body).toBeInstanceOf(Object);
+});
+
+describe("/review/:Id Get review by review id", () => {
+  it("No review found", async () => {
+    const response = await request(app)
+      .get("/review")
+      .set("Authorization", `Bearer ${userToken}`);
+
+    expect(response.statusCode).toEqual(404);
+    expect(response.body).toBeInstanceOf(Object);
+  });
+});
+
+describe("/review/:Id Get review by movie id", () => {
+  it("No review found", async () => {
+    const response = await request(app)
+      .get("/review")
+      .set("Authorization", `Bearer ${userToken}`);
+
+    expect(response.statusCode).toEqual(403);
+    expect(response.body).toBeInstanceOf(Object);
+  });
+});
+
+describe("/review/:Id Get review by user id", () => {
+  it("No review found", async () => {
+    const response = await request(app)
+      .get("/review")
+      .set("Authorization", `Bearer ${userToken}`);
+
+    expect(response.statusCode).toEqual(404);
+    expect(response.body).toBeInstanceOf(Object);
+  });
+});
+
+describe("PUT Update Review by Review Id", () => {
+  it("Rating must be a number (integer)", async () => {
+    const res = await request(app)
+      .put(`/review/${id_review}`)
+      .set("Authorization", `Bearer {user1Token}`)
+      .send({
+        headline: "suka",
+        comment: "anda belum beruntung",
+        rating: "s",
+      });
+
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toBeInstanceOf(Object);
+  });
+});
+
+describe("DELETE Review by review Id", () => {
+  it("Review with id ${req.params.id} has been deleted", async () => {
+    const res = await request(app)
+      .delete(`/review/${id_movie}`)
+      .set("Authorization", `Bearer ${adminToken}`);
+
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toBeInstanceOf(Object);
+  });
+
+  it("Review not found", async () => {
+    const res = await request(app)
+      .delete(`/review/00000`)
+      .set("Authorization", `Bearer {user1Token}`);
+
+    expect(res.statusCode).toEqual(403);
+    expect(res.body).toBeInstanceOf(Object);
+  });
+});

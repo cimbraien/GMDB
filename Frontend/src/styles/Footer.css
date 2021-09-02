@@ -1,0 +1,23 @@
+.footer-item {
+  background-color: rgb(10, 10, 10);
+  color: white;
+  padding: 2rem;
+}
+
+.logo {
+  margin-bottom: 1rem;
+}
+
+img {
+  margin: 0.25rem;
+}
+
+.copyright {
+  border-top: white solid 3px;
+  margin-top: 1rem;
+}
+
+.copyright-text {
+  margin-top: 1.5em;
+  margin-bottom: 0px;
+}

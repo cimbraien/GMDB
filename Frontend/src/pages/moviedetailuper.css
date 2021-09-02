@@ -1,0 +1,113 @@
+.upper {
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+button.trailer {
+  background-color: #fe024e;
+  color: white;
+  width: 200px;
+  height: 55px;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 20px;
+  box-shadow: white;
+  margin-bottom: 20px;
+}
+.path {
+  padding: 2em;
+  max-width: 350px;
+}
+
+button.watchlist {
+  width: 200px;
+  height: 55px;
+  background-color: transparent;
+  color: white;
+  align-items: center;
+  border-width: 4px;
+  border-style: solid;
+  border-color: white;
+  font-weight: bold;
+  margin-right: 20px;
+  box-shadow: white;
+  margin-bottom: 20px;
+}
+
+.container {
+  padding-top: 3rem;
+}
+.de {
+  height: 350px;
+}
+.media {
+  padding-top: 60px;
+}
+
+.header {
+  color: white;
+  padding-bottom: 1rem;
+}
+p {
+  color: white;
+  box-sizing: border-box;
+  padding-bottom: 1rem;
+  font-size: 20px;
+}
+
+h5 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: white;
+}
+.AktorCard {
+  margin-bottom: 2em;
+  display: flex;
+  padding: 0;
+}
+
+.content-youtube {
+  background: transparent;
+  border: none;
+}
+
+.eventTabs {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.eventTabs p {
+  color: black;
+}
+
+@media (max-width: 750px) {
+  .upper {
+    flex-direction: column;
+  }
+
+  .path {
+    width: 100%;
+    height: 350px;
+    padding-bottom: 2em;
+  }
+}
+
+
+
+@media (max-width: 430px) {
+
+  .path {
+    width: 100%;
+    padding-bottom: 2em;
+  }
+  p {
+    color: white;
+    box-sizing: border-box;
+    padding-bottom: 1rem;
+    font-size: 15px;
+  }
+}
